@@ -3,10 +3,10 @@
 @section('content')
 
 <div class="container">
-<h1>Usuarios</h1>
+<h1>Lista  De Usuarios</h1>
 
 <table class="table table-dark table-striped">
-    <thead class="thead-light">
+    <thead class="table-dark" >
         <tr>
             <th>#</th>
             <th>Foto</th>
@@ -26,15 +26,16 @@
             <td>{{ $empleado->Apellido}}</td>
             <td>{{ $empleado->Sexo}}</td>
             <td>{{ $empleado->Correo}}</td>
-            <td>Editar | <form action="{{ url('/empleado/'.$empleado->id)}}" method="post">
+            <td><a href="{{ url('/empleado/'.$empleado->id.'/edit')}}">
+                Editar | <form action="{{ url('/empleado/'.$empleado->id)}}" method="post">
                 @csrf
                 {{ method_field('DELETE') }}
-                <input class="btn btn-danger"  type="submit" onclick="return confirm('¿Esta seguro de borrar este usuario?')"
+                <input class="btn btn-danger btn-sm"  type="submit" onclick="return confirm('¿Esta seguro de borrar este usuario?')"
                 value="Borrar"> 
                 </form>
             </td>
         </tr>
-        @endforeach;
+        @endforeach
     </tbody>
   </table>
 </div>
